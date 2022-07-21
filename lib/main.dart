@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyStatefulWidget(),
     );
   }
 }
@@ -110,6 +110,47 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+class MyWidget extends StatelessWidget {
+  var counter = 0;
+
+  MyWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    counter += 1;
+    print(counter);
+
+    return Container(
+      child: Center(
+        child: Text("Hello!"),
+      ),
+    );
+  }
+}
+
+class MyStatefulWidget extends StatefulWidget {
+  MyStatefulWidget({Key? key}) : super(key: key);
+
+  @override
+  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+}
+
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  var counter = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    counter += 1;
+    print(counter);
+
+    return Container(
+      child: Center(
+        child: Text("Hello!"),
+      ),
     );
   }
 }
